@@ -1,7 +1,7 @@
 variable lambda_function_arn {}
 
 locals {
-  region = "${var.default_region}"
+  region = "${data.aws_region.current.name}"
 }
 
 
