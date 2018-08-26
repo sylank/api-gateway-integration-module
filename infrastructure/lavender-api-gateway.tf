@@ -6,6 +6,7 @@ locals {
 # API Gateway
 resource "aws_api_gateway_rest_api" "api" {
   name = "lavender-backend-api"
+  description = "Lavender backend services API gateway"
 }
 
 resource "aws_api_gateway_resource" "resource" {
