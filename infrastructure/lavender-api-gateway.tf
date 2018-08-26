@@ -5,11 +5,11 @@ locals {
 
 # API Gateway
 resource "aws_api_gateway_rest_api" "api" {
-  name = "myapi"
+  name = "lavender-backend-api"
 }
 
 resource "aws_api_gateway_resource" "resource" {
-  path_part = "resource"
+  path_part = "api"
   parent_id = "${aws_api_gateway_rest_api.api.root_resource_id}"
   rest_api_id = "${aws_api_gateway_rest_api.api.id}"
 }
@@ -28,16 +28,4 @@ resource "aws_api_gateway_integration" "integration" {
   integration_http_method = "POST"
   type                    = "AWS_PROXY"
   uri                     = "arn:aws:apigateway:${local.region}:lambda:path/2015-03-31/functions/${aws_lambda_function.lambda.arn}/invocations"
-}
-
-output rest_api_id {
-    value = "${aws_api_gateway_rest_api.api.id}"
-}
-
-output api_method {
-    value = "${aws_api_gateway_method.method.http_method}"
-}
-
-output api_resource {
-    value = "${aws_api_gateway_resource.resource.path}"
 }
