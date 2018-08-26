@@ -1,6 +1,8 @@
 data "aws_region" "current" {}
 data "aws_caller_identity" "current" {}
 
+variable lambda_function_arn {}
+
 # API Gateway
 resource "aws_api_gateway_rest_api" "api" {
   name = "myapi"
@@ -25,7 +27,7 @@ resource "aws_api_gateway_integration" "integration" {
   http_method             = "${aws_api_gateway_method.method.http_method}"
   integration_http_method = "POST"
   type                    = "AWS_PROXY"
-  uri                     = "arn:aws:apigateway:${data.aws_region.current}:lambda:path/2015-03-31/functions/${aws_lambda_function.lambda.arn}/invocations"
+  uri                     = "arn:aws:apigateway:${data.aws_region.current}:lambda:path/2015-03-31/functions/${var.lambda_function_arn}/invocations"
 }
 
 output rest_api_id {
