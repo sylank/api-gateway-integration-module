@@ -160,6 +160,6 @@ resource "aws_api_gateway_deployment" "lavender_backend_deployment" {
   stage_name  = "api"
 
   variables = {
-    "answer" = "${random_string.deployment_variable.result}"
+    "deployed_at" = "${random_string.deployment_variable.result}"
   }
 }
