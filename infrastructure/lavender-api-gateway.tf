@@ -21,7 +21,7 @@ resource "aws_api_gateway_deployment" "lavender_backend_deployment" {
   ]
 
   rest_api_id = "${aws_api_gateway_rest_api.api.id}"
-  stage_name  = "api"
+  stage_name  = "${var.stage_name}"
 
   variables = {
     "deployed_at" = "${random_string.deployment_variable.result}"

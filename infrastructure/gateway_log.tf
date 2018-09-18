@@ -38,3 +38,10 @@ resource "aws_api_gateway_method_settings" "settings_enabled" {
     logging_level   = "INFO"
   }
 }
+
+//API-Gateway-Execution-Logs_si0vpv43h1/api
+resource "aws_cloudwatch_log_group" "create_reservation_log_group" {
+  name = "API-Gateway-Execution-Logs_${aws_api_gateway_rest_api.api.id}/${var.stage_name}"
+
+  retention_in_days = 7
+}
