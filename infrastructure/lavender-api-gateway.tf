@@ -6,7 +6,7 @@ resource "random_string" "deployment_variable" {
   length  = 10
   special = false
 }
-
+/*
 resource "aws_api_gateway_account" "gateway" {
   cloudwatch_role_arn = "${aws_iam_role.cloudwatchlog.arn}"
 }
@@ -46,7 +46,7 @@ resource "aws_api_gateway_method_settings" "settings" {
     metrics_enabled = true
     logging_level   = "INFO"
   }
-}
+}*/
 
 # API Gateway
 resource "aws_api_gateway_rest_api" "api" {
