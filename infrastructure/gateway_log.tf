@@ -1,3 +1,7 @@
+resource "aws_api_gateway_account" "gateway" {
+  cloudwatch_role_arn = "${aws_iam_role.cloudwatchlog.arn}"
+}
+
 resource "aws_iam_role" "cloudwatchlog" {
   name = "cloudwatchlog"
 
