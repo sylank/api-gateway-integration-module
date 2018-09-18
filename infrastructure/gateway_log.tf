@@ -1,8 +1,3 @@
-/*
-resource "aws_api_gateway_account" "gateway" {
-  cloudwatch_role_arn = "${aws_iam_role.cloudwatchlog.arn}"
-}
-
 resource "aws_iam_role" "cloudwatchlog" {
   name = "cloudwatchlog"
 
@@ -28,7 +23,7 @@ resource "aws_iam_policy_attachment" "cloudwatchlog" {
   roles      = ["${aws_iam_role.cloudwatchlog.name}"]
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs"
 }
-*/
+
 resource "aws_api_gateway_method_settings" "settings_enabled" {
   rest_api_id = "${aws_api_gateway_rest_api.api.id}"
   stage_name  = "${aws_api_gateway_deployment.lavender_backend_deployment.stage_name}"
