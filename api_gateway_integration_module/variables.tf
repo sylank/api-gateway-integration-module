@@ -12,7 +12,7 @@ variable "status_200" {
 }
 
 variable "status_default" {
-  default = "${var.status_200}"
+  default = "200"
 }
 
 variable "default_pattern" {
