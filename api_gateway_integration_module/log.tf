@@ -1,5 +1,5 @@
 resource "aws_api_gateway_account" "gateway" {
-  cloudwatch_role_arn = "${aws_iam_role.cloudwatchlog.arn}"
+  cloudwatch_role_arn = "${aws_iam_role.cloudwatchlog_role.arn}"
 }
 
 resource "aws_iam_role" "cloudwatchlog_role" {
@@ -23,7 +23,7 @@ EOF
 }
 
 resource "aws_iam_policy_attachment" "cloudwatchlog_attachment" {
-  name       = "${var.api_name}_logs"
+  name       = "${var.path_url}_logs"
   roles      = ["${aws_iam_role.cloudwatchlog_role.name}"]
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs"
 }
