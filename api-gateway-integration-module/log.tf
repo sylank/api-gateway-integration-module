@@ -1,4 +1,3 @@
-
 resource "aws_api_gateway_account" "gateway" {
   cloudwatch_role_arn = "${aws_iam_role.cloudwatchlog.arn}"
 }
@@ -30,9 +29,9 @@ resource "aws_iam_policy_attachment" "cloudwatchlog_attachment" {
 }
 
 resource "aws_api_gateway_method_settings" "settings_enabled" {
-  rest_api_id = "${aws_api_gateway_rest_api.api.id}"
-  stage_name  = "${aws_api_gateway_deployment.deployment.stage_name}"
-  method_path = "${aws_api_gateway_resource.root_resource.path_part}/${aws_api_gateway_resource.resource.path_part}/${aws_api_gateway_method.method.http_method}"
+  rest_api_id = "${var.rest_api_id}"
+  stage_name  = "${var.stage_name}"
+  method_path = "${var.root_path}/${aws_api_gateway_resource.resource.path_part}/${aws_api_gateway_method.method.http_method}"
 
   settings {
     metrics_enabled = true
@@ -41,7 +40,7 @@ resource "aws_api_gateway_method_settings" "settings_enabled" {
 }
 
 resource "aws_cloudwatch_log_group" "gateway_logging" {
-  name = "API-Gateway-Execution-Logs_${aws_api_gateway_rest_api.api.id}/${var.stage_name}"
+  name = "API-Gateway-Execution-Logs_${var.rest_api_id}/${var.stage_name}"
 
   retention_in_days = "${var.retention_in_days}"
 }

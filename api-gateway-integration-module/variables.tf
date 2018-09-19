@@ -1,27 +1,9 @@
-resource "random_string" "deployment_variable" {
-  length  = 10
-  special = false
-}
-
-variable "api_name" {}
-
-variable "api_description" {}
-
-variable "stage_name" {
-  default = "api"
-}
-
-variable "deployed_at" {
-  default = "${random_string.deployment_variable.result}"
-}
 
 variable "region" {}
 
 variable "lambda_function_arn" {}
 
 variable "method_type" {}
-
-variable "root_path" {}
 
 variable "path_url" {}
 
@@ -44,3 +26,20 @@ variable "log_level" {
 variable "retention_in_days" {
   default = "7"
 }
+
+variable "rest_api_id" {
+  
+}
+
+variable "stage_name" {
+  
+}
+
+variable "root_path" {
+  
+}
+
+variable "root_resource_id" {
+  
+}
+
