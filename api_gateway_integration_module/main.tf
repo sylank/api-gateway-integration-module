@@ -8,7 +8,7 @@ resource "aws_api_gateway_integration" "integration" {
   passthrough_behavior    = "WHEN_NO_TEMPLATES"
 
   request_templates = {
-    "application/json" = "${file("api_gateway_body_mapping.template")}"
+    "application/json" = "${file("api_gateway_integration_module/api_gateway_integration_module/api_gateway_body_mapping.template")}"
   }
 }
 
