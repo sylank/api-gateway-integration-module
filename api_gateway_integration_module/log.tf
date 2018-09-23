@@ -3,7 +3,7 @@ resource "aws_api_gateway_account" "gateway" {
 }
 
 resource "aws_iam_role" "cloudwatchlog_role" {
-  name = "${var.lambda_function_arn}_gwlog"
+  name = "${var.path_url}_gwlog"
 
   assume_role_policy = <<EOF
 {
