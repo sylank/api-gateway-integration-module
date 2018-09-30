@@ -1,3 +1,3 @@
-# lavender-api-gateway
+# api-gateway-integration-module
 
 Abstract API Gateway Integration modul for Lambda
