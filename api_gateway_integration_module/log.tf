@@ -1,4 +1,4 @@
-resource "aws_api_gateway_account" "gateway" {
+/*resource "aws_api_gateway_account" "gateway" {
   cloudwatch_role_arn = "${aws_iam_role.cloudwatchlog_role.arn}"
 }
 
@@ -37,7 +37,7 @@ resource "aws_api_gateway_method_settings" "settings_enabled" {
     metrics_enabled = true
     logging_level   = "${var.log_level}"
   }
-}
+}*/
 /*
 resource "aws_cloudwatch_log_group" "gateway_logging" {
   name = "API-Gateway-Execution-Logs_${var.rest_api_id}/${var.stage_name}"
