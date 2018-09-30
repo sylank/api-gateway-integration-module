@@ -19,23 +19,7 @@ variable "default_pattern" {
   default = ""
 }
 
-variable "log_level" {
-  default = "INFO"
-}
-
-variable "retention_in_days" {
-  default = "7"
-}
-
 variable "rest_api_id" {
-  
-}
-
-variable "stage_name" {
-  
-}
-
-variable "root_path" {
   
 }
 
