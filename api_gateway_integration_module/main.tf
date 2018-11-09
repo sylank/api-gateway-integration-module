@@ -16,7 +16,7 @@ resource "aws_api_gateway_integration" "integration" {
 
 resource "aws_api_gateway_method" "method" {
   rest_api_id   = "${var.rest_api_id}"
-  resource_id   = "${aws_api_gateway_resource.resource.id}"
+  resource_id   = "${var.cors_option_method==true?var.cors_resource_id:aws_api_gateway_resource.resource.id}"
   http_method   = "${var.method_type}"
   authorization = "NONE"
 }
