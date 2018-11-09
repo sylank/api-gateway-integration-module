@@ -30,4 +30,6 @@ variable "cors_option_method" {
   default = false
 }
 
-variable "cors_resource_id" {}
+variable "cors_resource_id" {
+  default = ""
+}
