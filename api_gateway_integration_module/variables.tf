@@ -29,3 +29,5 @@ variable "cors_enabled" {
 variable "cors_option_method" {
   default = false
 }
+
+variable "cors_resource_id" {}

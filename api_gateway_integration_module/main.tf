@@ -22,6 +22,8 @@ resource "aws_api_gateway_method" "method" {
 }
 
 resource "aws_api_gateway_resource" "resource" {
+  count = "${var.cors_option_method==true?0:1}"
+  
   path_part   = "${var.path_url}"
   parent_id   = "${var.root_resource_id}"
   rest_api_id = "${var.rest_api_id}"

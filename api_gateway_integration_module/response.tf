@@ -29,7 +29,7 @@ resource "aws_api_gateway_method_response" "options_200" {
   count = "${var.cors_option_method==true?1:0}"
 
   rest_api_id = "${var.rest_api_id}"
-  resource_id = "${aws_api_gateway_resource.resource.id}"
+  resource_id = "${var.cors_resource_id}"
   http_method = "${aws_api_gateway_method.method.http_method}"
   status_code = "200"
 
@@ -50,7 +50,7 @@ resource "aws_api_gateway_integration_response" "options_integration_response" {
   count = "${var.cors_option_method==true?1:0}"
 
   rest_api_id = "${var.rest_api_id}"
-  resource_id = "${aws_api_gateway_resource.resource.id}"
+  resource_id = "${var.cors_resource_id}"
   http_method = "${aws_api_gateway_method.method.http_method}"
   status_code = "${aws_api_gateway_method_response.options_200.status_code}"
 
