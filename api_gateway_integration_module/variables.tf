@@ -1,4 +1,3 @@
-
 variable "region" {}
 
 variable "lambda_function_arn" {}
@@ -19,11 +18,14 @@ variable "default_pattern" {
   default = ""
 }
 
-variable "rest_api_id" {
-  
+variable "rest_api_id" {}
+
+variable "root_resource_id" {}
+
+variable "cors_enabled" {
+  default = false
 }
 
-variable "root_resource_id" {
-  
+variable "cors_option_method" {
+  default = false
 }
-

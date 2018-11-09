@@ -1,4 +1,6 @@
 resource "aws_api_gateway_integration" "integration" {
+  count = "${var.cors_option_method==true?0:1}"
+
   rest_api_id             = "${var.rest_api_id}"
   resource_id             = "${aws_api_gateway_resource.resource.id}"
   http_method             = "${aws_api_gateway_method.method.http_method}"
