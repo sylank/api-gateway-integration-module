@@ -21,15 +21,3 @@ variable "default_pattern" {
 variable "rest_api_id" {}
 
 variable "root_resource_id" {}
-
-variable "cors_enabled" {
-  default = false
-}
-
-variable "cors_option_method" {
-  default = false
-}
-
-variable "cors_resource_id" {
-  default = ""
-}

@@ -1,6 +1,4 @@
 resource "aws_api_gateway_integration" "integration" {
-  count = "${var.cors_option_method==true?0:1}"
-
   rest_api_id             = "${var.rest_api_id}"
   resource_id             = "${aws_api_gateway_resource.resource.id}"
   http_method             = "${aws_api_gateway_method.method.http_method}"
@@ -16,14 +14,14 @@ resource "aws_api_gateway_integration" "integration" {
 
 resource "aws_api_gateway_method" "method" {
   rest_api_id   = "${var.rest_api_id}"
-  resource_id   = "${var.cors_option_method==true?var.cors_resource_id:aws_api_gateway_resource.resource.id}"
+  resource_id   = "${aws_api_gateway_resource.resource.id}"
   http_method   = "${var.method_type}"
   authorization = "NONE"
+
+  depends_on = ["aws_api_gateway_resource.resource"]
 }
 
 resource "aws_api_gateway_resource" "resource" {
-  count = "${var.cors_option_method==true?0:1}"
-  
   path_part   = "${var.path_url}"
   parent_id   = "${var.root_resource_id}"
   rest_api_id = "${var.rest_api_id}"
