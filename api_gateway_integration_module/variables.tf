@@ -15,7 +15,7 @@ variable "status_default" {
 }
 
 variable "default_pattern" {
-  default = ""
+  default = "-"
 }
 
 variable "rest_api_id" {}

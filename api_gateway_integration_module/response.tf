@@ -4,15 +4,15 @@ resource "aws_api_gateway_method_response" "200" {
   http_method = "${aws_api_gateway_method.method.http_method}"
   status_code = "${var.status_200}"
 
-  response_models = {
-    "application/json" = "Empty"
-  }
-
   response_parameters = {
     "method.response.header.Access-Control-Allow-Origin" = true
   }
 
-  depends_on = ["aws_api_gateway_integration.integration"]
+  response_models {
+    "application/json" = "Empty"
+  }
+
+  depends_on = ["aws_api_gateway_method.method"]
 }
 
 resource "aws_api_gateway_integration_response" "default_integration_response" {
@@ -25,5 +25,6 @@ resource "aws_api_gateway_integration_response" "default_integration_response" {
   response_parameters = {
     "method.response.header.Access-Control-Allow-Origin" = "'*'"
   }
+
   depends_on = ["aws_api_gateway_integration.integration"]
 }
