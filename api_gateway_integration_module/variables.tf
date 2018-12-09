@@ -21,3 +21,17 @@ variable "default_pattern" {
 variable "rest_api_id" {}
 
 variable "root_resource_id" {}
+
+variable "status_500" {
+  default = "500"
+}
+variable "status_500_pattern" {
+  
+}
+
+variable "status_400" {
+  default = "400"
+}
+variable "status_400_pattern" {
+  
+}
