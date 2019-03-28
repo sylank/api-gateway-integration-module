@@ -35,3 +35,7 @@ variable "status_400" {
 variable "status_400_pattern" {
   
 }
+
+variable "aws_proxy" {
+  default = false
+}
