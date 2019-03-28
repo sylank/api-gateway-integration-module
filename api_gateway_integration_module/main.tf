@@ -1,4 +1,4 @@
-resource "aws_api_gateway_integration" "integration" {
+resource "aws_api_gateway_integration" "proxy_integration" {
   count = "${var.aws_proxy ? 1 : 0}"
   rest_api_id             = "${var.rest_api_id}"
   resource_id             = "${aws_api_gateway_resource.resource.id}"
